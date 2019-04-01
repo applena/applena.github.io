@@ -1,0 +1,56 @@
+@import "../reset.scss";
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+body{
+  background: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 19pt;
+  font-weight: 300;
+  line-height: 1.75em;
+  color: #888;
+
+  #portfolio{
+    background-color: #f5fafa;
+
+    h2{
+      display: block;
+      font-size: 1.5em;
+      margin-block-end: 0.83em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      font-weight: bold;
+      line-height: 1.5em;
+      text-align: center;
+      padding-top: 1em;
+    }
+  
+    p{
+      display: block;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      text-align: center;
+    }
+  
+    .deck{
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+  
+      .card{
+        img{
+          max-width: 500px;
+        }
+  
+        h3 {
+          border-bottom: 2px double lightgray;
+          border-top: 2px double lightgray;
+          text-align: center;
+          margin-bottom: 1em;
+        }
+      }
+    }
+  }
+      
+}
