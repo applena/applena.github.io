@@ -13,6 +13,7 @@
   "scripts": {
     "start": "./node_modules/.bin/react-scripts start",
     "build": "./node_modules/.bin/react-scripts build",
+    "deploy": "git checkout production && cp build/* ./ && git add -A . && git commit -m 'deploy' && git checkout master",
     "test": "./node_modules/.bin/react-scripts test",
     "eject": "./node_modules/.bin/react-scripts eject"
   },
