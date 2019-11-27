@@ -13,7 +13,7 @@
   "scripts": {
     "start": "./node_modules/.bin/react-scripts start",
     "build": "./node_modules/.bin/react-scripts build",
-    "deploy": "git checkout production && cp -R build/* ./ && git add -A . && git commit -m 'deploy' && git push && git checkout master && rm *.html *.ico *.json *.js && git reset --hard origin/master",
+    "deploy": "./node_modules/.bin/gh-pages -d build -b master",
     "test": "./node_modules/.bin/react-scripts test",
     "eject": "./node_modules/.bin/react-scripts eject"
   },
@@ -25,5 +25,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "gh-pages": "2.0.1"
+  }
 }

@@ -63,7 +63,7 @@
 
 #mom a:after {
   color: white;
-  content: 'A business site. Technologies Used: CMS, CSS, Wordpress, and HTML';
+  content: 'Refactored the civic minded application to use a React/Redux frontend with a node.js backend - makes three external API calls and uses SASS to style. Backend deployed to Heroku. Frontend deployed to github pages.';
   padding: 5px;
   font-size: .7em;
   line-height: 1.3em;

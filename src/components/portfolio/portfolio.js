@@ -35,8 +35,8 @@ class Portfolio extends React.Component{
             <h3>WALDO</h3>
           </div>
           <div id="mom" class="card">
-            <a href="http://dnadialogues.com/" target="blank"><img src={Dna} /></a>
-            <h3>DNA Dialogues</h3>
+            <a href="http://lenaeivy.com/know-your-vote" target="blank"><img src={VoteReact} /></a>
+            <h3>Know Your Vote (redone with React Frontend)</h3>
           </div>
           <div id="todo" class="card">
             <a href="https://applena.github.io/todolist/" target="blank"><img src={ToDoPic} /></a>
