@@ -3,16 +3,16 @@ import menu from '../img/hamburgerMenu.png';
 import './header.scss';
 import './button.scss';
 
-class Header extends React.Component{
-  render(){
-    return(
+class Header extends React.Component {
+  render() {
+    return (
       <div id='header-text'>
         <header>
           <div id='menu'>
             <img src={menu} alt='menu' />
             <div id='side-nav'>
               <ul>
-              <li>
+                <li>
                   <a href="/">Home</a>
                 </li>
                 <li>
@@ -33,7 +33,7 @@ class Header extends React.Component{
             A background in education, photography and business with a passion for creating useful lasting applications.
           </p>
           <p>
-            Lets create something amazing together.
+            {/* Lets create something amazing together. */}
           </p>
           <a id="button" href="#portfolio">See More</a>
         </header>
