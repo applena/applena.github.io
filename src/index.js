@@ -6,6 +6,7 @@ import LandingPage from "./components/LandingPage";
 import Services from "./components/Services";
 import Contact from "./components/Contact";
 // import Header from "./components/Headers";
+import "./index.css";
 
 const router = createBrowserRouter([
   {

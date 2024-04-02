@@ -1,0 +1,26 @@
+nav ul{
+  display: flex;
+  justify-content: space-between;
+}
+
+nav{
+  width: 100%;
+}
+
+nav ul a{
+  text-decoration: none;
+  color: black;
+}
+
+#header{
+  display:flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.headerElement{
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
