@@ -31,7 +31,7 @@ if (themeButton) {
 
 const goodreadsCurrent = document.getElementById("goodreads-current");
 if (goodreadsCurrent) {
-  const userId = goodreadsCurrent.dataset.goodreadsUserId || "2174227-lena";
+  const userId = goodreadsCurrent.dataset.goodreadsUserId || "2174227";
   const shelf = goodreadsCurrent.dataset.goodreadsShelf || "read";
   const status = document.getElementById("goodreads-status");
   const book = goodreadsCurrent.querySelector(".goodreads-book");
@@ -45,25 +45,54 @@ if (goodreadsCurrent) {
     }
   };
 
-  const extractText = (parent, tagName) =>
-    parent.querySelector(tagName)?.textContent?.trim() || "";
+  const extractText = (parent, tagName) => {
+    const escapedTag = typeof CSS !== "undefined" && CSS.escape ? CSS.escape(tagName) : tagName;
+
+    return (
+      parent.querySelector(escapedTag)?.textContent?.trim() ||
+      parent.getElementsByTagName(tagName)?.[0]?.textContent?.trim() ||
+      ""
+    );
+  };
 
   if (userId) {
     const feedUrl = `https://www.goodreads.com/review/list_rss/${encodeURIComponent(userId)}?shelf=${encodeURIComponent(shelf)}&sort=date_updated&order=d`;
-    const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(feedUrl)}`;
+    const proxyUrls = [
+      `https://api.allorigins.win/raw?url=${encodeURIComponent(feedUrl)}`,
+      `https://cors.isomorphic-git.org/${feedUrl}`
+    ];
+
+    const fetchFeed = async () => {
+      for (const proxyUrl of proxyUrls) {
+        try {
+          const response = await fetch(proxyUrl);
+          if (!response.ok) {
+            continue;
+          }
+
+          const xmlText = await response.text();
+          if (xmlText) {
+            return xmlText;
+          }
+        } catch {
+          // Try next proxy.
+        }
+      }
+
+      throw new Error("Feed request failed for all proxy endpoints");
+    };
 
     setStatus("Loading your latest Goodreads rating…");
 
-    fetch(proxyUrl)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`Feed request failed (${response.status})`);
-        }
-
-        return response.text();
-      })
+    fetchFeed()
       .then((xmlString) => {
         const xml = new DOMParser().parseFromString(xmlString, "application/xml");
+        const parserError = xml.querySelector("parsererror");
+
+        if (parserError) {
+          throw new Error("Goodreads feed returned invalid XML");
+        }
+
         const items = Array.from(xml.querySelectorAll("item"));
         const item = items.find((entry) => Number(extractText(entry, "user_rating")) > 0);
 
