@@ -231,18 +231,23 @@ blockquote {
 
 .writing-post {
   overflow: hidden;
-  padding: 0;
+
+  padding: clamp(0.75rem, 2vw, 1.25rem);
 }
 
 .post-cover {
   width: 100%;
-  height: clamp(220px, 36vw, 420px);
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  max-height: min(52vh, 420px);
   object-fit: cover;
   display: block;
+  border-radius: 0.7rem;
 }
 
 .post-content {
-  padding: 1.25rem;
+  padding: clamp(0.85rem, 2vw, 1.25rem) 0 0;
 }
 
 .writing-post h1 {
