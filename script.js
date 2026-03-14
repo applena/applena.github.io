@@ -28,3 +28,84 @@ if (themeButton) {
     themeButton.textContent = isSunset ? "Switch color vibe" : "Switch to cool blue vibe";
   });
 }
+
+const goodreadsCurrent = document.getElementById("goodreads-current");
+if (goodreadsCurrent) {
+  const userId = goodreadsCurrent.dataset.goodreadsUserId || "2174227-lena";
+  const shelf = goodreadsCurrent.dataset.goodreadsShelf || "read";
+  const status = document.getElementById("goodreads-status");
+  const book = goodreadsCurrent.querySelector(".goodreads-book");
+  const cover = document.getElementById("goodreads-cover");
+  const title = document.getElementById("goodreads-title");
+  const rating = document.getElementById("goodreads-rating");
+
+  const setStatus = (message) => {
+    if (status) {
+      status.textContent = message;
+    }
+  };
+
+  const extractText = (parent, tagName) =>
+    parent.querySelector(tagName)?.textContent?.trim() || "";
+
+  if (userId) {
+    const feedUrl = `https://www.goodreads.com/review/list_rss/${encodeURIComponent(userId)}?shelf=${encodeURIComponent(shelf)}&sort=date_updated&order=d`;
+    const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(feedUrl)}`;
+
+    setStatus("Loading your latest Goodreads rating…");
+
+    fetch(proxyUrl)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Feed request failed (${response.status})`);
+        }
+
+        return response.text();
+      })
+      .then((xmlString) => {
+        const xml = new DOMParser().parseFromString(xmlString, "application/xml");
+        const items = Array.from(xml.querySelectorAll("item"));
+        const item = items.find((entry) => Number(extractText(entry, "user_rating")) > 0);
+
+        if (!item) {
+          throw new Error("No rated books found in Goodreads feed");
+        }
+
+        const bookTitle = extractText(item, "book_title") || extractText(item, "title");
+        const userRating = extractText(item, "user_rating");
+        const coverUrl =
+          extractText(item, "book_large_image_url") ||
+          extractText(item, "book_image_url") ||
+          extractText(item, "book_small_image_url");
+
+        if (title) {
+          title.textContent = bookTitle || "Untitled book";
+        }
+
+        if (rating) {
+          rating.textContent = userRating
+            ? `Your rating: ${"★".repeat(Number(userRating))}${"☆".repeat(5 - Number(userRating))} (${userRating}/5)`
+            : "Your rating: Not rated yet";
+        }
+
+        if (cover && coverUrl) {
+          cover.src = coverUrl;
+          cover.alt = `Cover of ${bookTitle || "your latest rated book"}`;
+        } else if (cover) {
+          cover.removeAttribute("src");
+          cover.alt = "";
+        }
+
+        if (book) {
+          book.hidden = false;
+        }
+
+        if (status) {
+          status.hidden = true;
+        }
+      })
+      .catch(() => {
+        setStatus("Couldn’t load Goodreads ratings right now. Please try again in a moment.");
+      });
+  }
+}
