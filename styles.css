@@ -238,9 +238,7 @@ blockquote {
 .post-cover {
   width: 100%;
   max-width: 100%;
-  aspect-ratio: 16 / 9;
-  height: auto;
-  max-height: min(52vh, 420px);
+  height: clamp(180px, 28vw, 280px);
   object-fit: cover;
   display: block;
   border-radius: 0.7rem;
