@@ -27,6 +27,16 @@ body {
   line-height: 1.6;
 }
 
+body[data-theme="sunset"] {
+  --bg: #fff7ed;
+  --surface: #fffbf5;
+  --text: #431407;
+  --muted: #9a3412;
+  --border: #fed7aa;
+  --accent: #ea580c;
+  --accent-soft: #ffedd5;
+}
+
 .wrap {
   width: min(100% - 2rem, 980px);
   margin-inline: auto;
@@ -38,6 +48,11 @@ body {
   backdrop-filter: blur(8px);
   background: rgb(248 250 252 / 86%);
   border-bottom: 1px solid var(--border);
+  z-index: 9;
+}
+
+body[data-theme="sunset"] .site-header {
+  background: rgb(255 247 237 / 90%);
 }
 
 .header-row {
@@ -109,17 +124,18 @@ h1 {
   border: 1px solid transparent;
   background: var(--accent);
   color: #fff;
+  cursor: pointer;
 }
 
 .button:hover,
 .button:focus-visible {
-  background: #1e40af;
+  filter: brightness(0.92);
 }
 
 .button-ghost {
   background: var(--accent-soft);
-  color: #1e3a8a;
-  border-color: #bfdbfe;
+  color: color-mix(in srgb, var(--accent), #1e3a8a 45%);
+  border-color: color-mix(in srgb, var(--accent), white 70%);
 }
 
 .section {
@@ -176,6 +192,84 @@ h2 {
   padding: 0.9rem;
 }
 
+.pillar-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 220px;
+  color: #fff;
+}
+
+.pillar-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.02);
+}
+
+.pillar-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgb(15 23 42 / 28%), rgb(15 23 42 / 70%));
+}
+
+.pillar-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.pillar-card h3,
+.pillar-card p,
+.pillar-card a {
+  color: #fff;
+}
+
+.pillar-card a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.pillar-photo::before {
+  background-image: url("assets/pillar-photography.svg");
+}
+
+.pillar-writing::before {
+  background-image: url("assets/pillar-writing.svg");
+}
+
+.pillar-experiments::before {
+  background-image: url("assets/pillar-experiments.svg");
+}
+
+.pillar-resources::before {
+  background-image: url("assets/pillar-visual-art.svg");
+}
+
+.playful-zone {
+  background: linear-gradient(135deg, rgb(59 130 246 / 8%), rgb(236 72 153 / 8%));
+  border: 1px dashed color-mix(in srgb, var(--accent), white 75%);
+  border-radius: 1rem;
+  padding: 1.4rem;
+}
+
+.play-controls {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.prompt-box {
+  margin-top: 0.9rem;
+  border-left: 4px solid var(--accent);
+}
+
+#prompt-text {
+  margin: 0;
+  font-weight: 500;
+}
+
 .pill-list {
   list-style: none;
   padding: 0;
@@ -223,9 +317,9 @@ blockquote {
     flex-direction: column;
     align-items: flex-start;
   }
-}
 
-.writing-page {
+  @media (max-width: 560px) {
+  .writing-page {
   padding: 5rem 0 2.5rem;
 }
 
