@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Abstract paint palette for visual art pillar">
+  <defs>
+    <linearGradient id="g4" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#172554"/>
+      <stop offset="50%" stop-color="#db2777"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#g4)"/>
+  <g fill-opacity="0.45">
+    <circle cx="250" cy="200" r="120" fill="#a7f3d0"/>
+    <circle cx="470" cy="230" r="90" fill="#93c5fd"/>
+    <circle cx="680" cy="180" r="120" fill="#fbcfe8"/>
+    <circle cx="910" cy="250" r="100" fill="#fde68a"/>
+  </g>
+  <path d="M160 560 Q280 450 430 560 T700 560 T980 560" fill="none" stroke="#fff7ed" stroke-opacity="0.6" stroke-width="16" stroke-linecap="round"/>
+  <rect x="220" y="600" width="760" height="90" rx="45" fill="#0f172a" fill-opacity="0.35"/>
+</svg>
