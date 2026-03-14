@@ -1,6 +1,17 @@
 # Lena Eivy Website
 
-This repository contains a basic static website for Lena Eivy.
+This repository contains a static personal website for Lena Eivy, designed as a creative portfolio hub.
+
+## Site focus
+
+The homepage is organized around four pillars:
+
+- Photography
+- Writing
+- Experiments
+- Resources
+
+It also includes sections for essay ideas, a public notebook, and contact details.
 
 ## Local preview
 

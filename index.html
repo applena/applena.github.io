@@ -3,15 +3,182 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lena Eivy</title>
+    <meta
+      name="description"
+      content="The Creative Studio of Lena Eivy — photography, writing, experiments, and practical resources."
+    />
+    <title>Lena Eivy | Creative Studio</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="container">
-      <p class="eyebrow">Welcome</p>
-      <h1>Lena Eivy</h1>
-      <p class="subtitle">A simple personal website hosted on GitHub Pages.</p>
-      <a class="button" href="mailto:hello@lenaeivy.com">Contact Lena</a>
+    <header class="site-header">
+      <div class="wrap header-row">
+        <a class="brand" href="#top">Lena Eivy</a>
+        <nav aria-label="Primary">
+          <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#pillars">Pillars</a></li>
+            <li><a href="#essays">Essays</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#notebook">Notebook</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero wrap">
+        <p class="eyebrow">The Creative Studio of Lena Eivy</p>
+        <h1>
+          Hi, I’m Lena Eivy. I make things—photographs, stories, small pieces
+          of art, and the occasional curious experiment.
+        </h1>
+        <p class="lead">
+          This is my home base for creative work and thoughtful living in the
+          Pacific Northwest.
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="#pillars">Explore the studio</a>
+          <a class="button button-ghost" href="#contact">Get in touch</a>
+        </div>
+      </section>
+
+      <section id="about" class="wrap section">
+        <h2>About Lena</h2>
+        <p>
+          I’m a photographer, writer, and lifelong learner who loves documenting
+          ordinary life with honesty and warmth. I share work in progress,
+          creative experiments, and practical tools for families and creators.
+        </p>
+      </section>
+
+      <section id="pillars" class="wrap section">
+        <h2>Four Creative Pillars</h2>
+        <div class="grid cols-2">
+          <article class="card">
+            <h3>Photography</h3>
+            <p>
+              Documentary-style images focused on real moments, family stories,
+              and everyday beauty.
+            </p>
+            <a href="#">Visit Wildlight Stories →</a>
+          </article>
+          <article class="card">
+            <h3>Writing</h3>
+            <p>
+              Novel updates, short stories, character sketches, and notes from
+              the writing desk.
+            </p>
+            <a href="#">Explore writing →</a>
+          </article>
+          <article class="card">
+            <h3>Experiments</h3>
+            <p>
+              A low-pressure lab for app ideas, AI tools, storytelling formats,
+              and curious side projects.
+            </p>
+            <a href="#">Enter Lena’s Lab →</a>
+          </article>
+          <article class="card">
+            <h3>Resources</h3>
+            <p>
+              Useful tools including business math materials for teens, planner
+              pages, and journaling prompts.
+            </p>
+            <a href="#">Browse resources →</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="essays" class="wrap section">
+        <h2>Essay & Journal Ideas</h2>
+        <div class="grid cols-3">
+          <article class="card compact">
+            <h3>Creative Life</h3>
+            <ul>
+              <li>Why candid photos matter</li>
+              <li>Learning watercolor as an adult</li>
+              <li>Creativity after 40</li>
+            </ul>
+          </article>
+          <article class="card compact">
+            <h3>Family + Unschooling</h3>
+            <ul>
+              <li>Teaching business math to teens</li>
+              <li>What unschooling actually looks like</li>
+              <li>Preparing teens for adulthood</li>
+            </ul>
+          </article>
+          <article class="card compact">
+            <h3>Pacific Northwest Life</h3>
+            <ul>
+              <li>Ferry reflections</li>
+              <li>Vashon Island quiet moments</li>
+              <li>Rainy day rituals</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="resources" class="wrap section">
+        <h2>Resource Library</h2>
+        <p>
+          A growing collection of practical downloads and exercises for creative
+          and family life.
+        </p>
+        <ul class="pill-list">
+          <li>Business math curriculum for teens</li>
+          <li>Budget templates</li>
+          <li>Creative journaling prompts</li>
+          <li>Photography reflection exercises</li>
+          <li>Unschooling planner pages</li>
+        </ul>
+      </section>
+
+      <section id="notebook" class="wrap section">
+        <h2>Public Notebook</h2>
+        <p>
+          Short observations, quotes, and ideas in progress—an open notebook in
+          the spirit of slow creativity.
+        </p>
+        <blockquote>
+          Observation: The ferry is the perfect place to photograph people
+          because everyone forgets they’re being watched.
+        </blockquote>
+        <div class="grid cols-2">
+          <article class="card compact">
+            <h3>Currently</h3>
+            <ul>
+              <li><strong>Reading:</strong> Essays on creative process</li>
+              <li><strong>Learning:</strong> Watercolor techniques</li>
+              <li><strong>Working on:</strong> Novel draft + photo journal</li>
+            </ul>
+          </article>
+          <article class="card compact">
+            <h3>100 Curiosities (sample)</h3>
+            <ul>
+              <li>Documentary photography</li>
+              <li>Circus arts</li>
+              <li>Philosophy</li>
+              <li>Storytelling systems</li>
+              <li>Dog-friendly adventures</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="wrap section">
+        <h2>Contact</h2>
+        <p>
+          If you’d like to collaborate, say hello.
+          <a href="mailto:hello@lenaeivy.com">hello@lenaeivy.com</a>
+        </p>
+      </section>
     </main>
+
+    <footer class="site-footer wrap">
+      <p>© <span id="year">2026</span> Lena Eivy · Built for GitHub Pages.</p>
+    </footer>
   </body>
 </html>
