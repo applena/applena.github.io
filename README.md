@@ -25,7 +25,7 @@ Then open <http://localhost:8080>.
 
 ## Goodreads "Currently" integration
 
-The "Currently" card fetches Goodreads account `2174227` and displays the most recently rated book (title, cover, and star rating) from the `read` shelf.
+The "Currently" card fetches Goodreads account `2174227` and displays the reading book (title, cover, and star rating) from the `read` shelf.
 
 The site fetches the Goodreads RSS feed via HTTPS proxies (with failover) and renders the newest entry with a `user_rating` value.
 
