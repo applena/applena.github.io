@@ -192,6 +192,47 @@ h2 {
   padding: 0.9rem;
 }
 
+
+.visual-grid {
+  gap: 1.1rem;
+}
+
+.media-card {
+  overflow: hidden;
+  padding: 0;
+}
+
+.media-cover {
+  width: 100%;
+  height: clamp(180px, 22vw, 260px);
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid var(--border);
+}
+
+.media-content {
+  padding: 0.95rem;
+}
+
+.section-note {
+  color: var(--muted);
+  margin-top: 0;
+  margin-bottom: 0.9rem;
+}
+
+.post-meta {
+  margin: 0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.sketchbook-post h3,
+.media-content h3 {
+  margin-top: 0.35rem;
+}
+
 #goodreads-current {
   margin-top: 0.4rem;
 }
@@ -345,6 +386,12 @@ blockquote {
   font-size: 0.95rem;
 }
 
+
+.writing-page,
+.visual-art-page {
+  padding: 5rem 0 2.5rem;
+}
+
 @media (max-width: 860px) {
   .cols-3 {
     grid-template-columns: 1fr;
@@ -358,53 +405,54 @@ blockquote {
     flex-direction: column;
     align-items: flex-start;
   }
-
-  @media (max-width: 560px) {
-  .writing-page {
-  padding: 5rem 0 2.5rem;
 }
 
-.writing-post {
-  overflow: hidden;
+@media (max-width: 560px) {
+  .media-cover {
+    height: 180px;
+  }
 
-  padding: clamp(0.75rem, 2vw, 1.25rem);
-}
+  .writing-post {
+    overflow: hidden;
+    padding: clamp(0.75rem, 2vw, 1.25rem);
+  }
 
-.post-cover {
-  width: 100%;
-  max-width: 100%;
-  height: clamp(180px, 28vw, 280px);
-  object-fit: cover;
-  display: block;
-  border-radius: 0.7rem;
-}
+  .post-cover {
+    width: 100%;
+    max-width: 100%;
+    height: clamp(180px, 28vw, 280px);
+    object-fit: cover;
+    display: block;
+    border-radius: 0.7rem;
+  }
 
-.post-content {
-  padding: clamp(0.85rem, 2vw, 1.25rem) 0 0;
-}
+  .post-content {
+    padding: clamp(0.85rem, 2vw, 1.25rem) 0 0;
+  }
 
-.writing-post h1 {
-  margin-top: 0;
-}
+  .writing-post h1 {
+    margin-top: 0;
+  }
 
-.expandable-text {
-  margin-top: 1rem;
-  border-top: 1px solid var(--border);
-  padding-top: 1rem;
-}
+  .expandable-text {
+    margin-top: 1rem;
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+  }
 
-.expandable-text summary {
-  cursor: pointer;
-  font-weight: 600;
-  color: #1e3a8a;
-  width: fit-content;
-}
+  .expandable-text summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: #1e3a8a;
+    width: fit-content;
+  }
 
-.expandable-text[open] summary {
-  margin-bottom: 0.8rem;
-}
+  .expandable-text[open] summary {
+    margin-bottom: 0.8rem;
+  }
 
-.expandable-text p {
-  margin: 0.7rem 0;
-  color: #334155;
+  .expandable-text p {
+    margin: 0.7rem 0;
+    color: #334155;
+  }
 }
